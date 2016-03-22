@@ -56,7 +56,9 @@ import scalaz.{Sink => _, _}
 import Scalaz._
 
 // json4s
+import org.json4s.JValue
 import org.json4s.jackson.JsonMethods._
+import org.json4s.JsonDSL._
 
 // Iglu
 import com.snowplowanalytics.iglu.client.Resolver
@@ -250,7 +252,9 @@ object KinesisEnrichApp extends App {
       }
       case Some(other) => parser.usage(s"Enrichments argument [$other] must begin with 'file:' or 'dynamodb:'")
     }
-    """{"schema":"iglu:com.snowplowanalytics.snowplow/enrichments/jsonschema/1-0-0","data":[%s]}""".format(jsons.mkString(","))
+    val combinedJson = ("schema" -> "iglu:com.snowplowanalytics.snowplow/enrichments/jsonschema/1-0-0") ~
+    ("data" -> jsons.toList.map(parse(_)))
+    compact(render(combinedJson))
   }
 
   /**
