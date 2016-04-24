@@ -1,0 +1,19 @@
+{
+  "type" : "object",
+  "properties" : {
+  "tag_version" : {
+      "type": "string"
+    },
+    "event_type" : {
+      "type" : "string"
+    }
+  },
+  "additionalProperties" : false,
+  "required": ["tag_version", "event_type"],
+  "self": {
+        "format": "jsonschema",
+        "name": "sale",
+        "vendor": "com.yieldify",
+        "version": "1-0-0"
+  }
+}

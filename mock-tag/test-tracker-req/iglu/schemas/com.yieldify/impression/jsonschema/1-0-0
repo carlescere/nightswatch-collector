@@ -1,0 +1,28 @@
+{
+  "type" : "object",
+  "properties" : {
+  "tag_version" : {
+      "type": "string"
+    },
+    "event_type" : {
+      "type" : "string"
+    },    
+    "xCompId": {
+      "type":  "string"
+    },
+    "xCollId": {
+      "type": "string" 
+    },
+    "campaign_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties" : false,
+  "required": ["tag_version", "event_type", "campaign_id"],
+  "self": {
+        "format": "jsonschema",
+        "name": "sale",
+        "vendor": "com.yieldify",
+        "version": "1-0-0"
+  }
+}

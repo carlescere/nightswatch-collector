@@ -1,4 +1,4 @@
-var snowplow = require('yi-snowplow-tracker'),
+var snowplow = require('snowplow-tracker'),
 	queueName,
 	queue,
 	windowAlias = window;
@@ -77,38 +77,70 @@ y_nsp('trackStructEvent', '2', 'Sale', 'v2', '-', '777');
 }
 */
 
+/*
 y_nsp('trackPageView');
+*/
 
+
+// Track PageView
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/pageview/jsonschema/1-0-0",
+  data: {
+    event_type: 'PageView',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789'
+  }
+}]);
+
+
+// Track Impression
 y_nsp('trackUnstructEvent', [{
   schema: "iglu:com.yieldify/impression/jsonschema/1-0-0",
   data: {
     event_type: 'Impression',
-    tag_version: "v2",
-    execution_component_id: '123',
-    execution_collection_id: '456',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
     campaign_id: '789'
   }
 }]);
 
+// Track Click
 y_nsp('trackUnstructEvent', [{
   schema: "iglu:com.yieldify/click/jsonschema/1-0-0",
   data: {
     event_type: 'Click',
-    tag_version: "v2",
-    execution_component_id: '123',
-    execution_collection_id: '456',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
     campaign_id: '789'
   }
 }]);
 
+// Track Close
 y_nsp('trackUnstructEvent', [{
   schema: "iglu:com.yieldify/close/jsonschema/1-0-0",
   data: {
     event_type: 'Close',
-    tag_version: "v2",
-    execution_component_id: '123',
-    execution_collection_id: '456',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
     campaign_id: '789'
+  }
+}]);
+
+// Track Formsubmit
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
+  data: {
+    event_type: 'FormSubmit',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    "email": 'iason@yieldify.com'
   }
 }]);
 
@@ -116,22 +148,73 @@ y_nsp('trackUnstructEvent', [{
   schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
   data: {
     event_type: 'FormSubmit',
-    tag_version: "v2",
-    execution_component_id: '123',
-    execution_collection_id: '456',
-    campaign_id: '789'
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    "email": 'iason@yieldify.com'
   }
 }]);
 
 y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
+  data: {
+    event_type: 'FormSubmit',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    "email": 'krishan@yieldify.com'
+  }
+}]);
+
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
+  data: {
+    event_type: 'FormSubmit',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    "email": 'miguel@yieldify.com'
+  }
+}]);
+
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
+  data: {
+    event_type: 'FormSubmit',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    "email": 'menelaos@yieldify.com'
+  }
+}]);
+
+// Track Sale
+y_nsp('trackUnstructEvent', [{
   schema: "iglu:com.yieldify/sale/jsonschema/1-0-0",
   data: {
     event_type: 'Sale',
-    tag_version: "v2",
-    basket_id: '123',
-    currency: '456',
-    value: '789',
-    order_id: '340',
-    opt: {}
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    total_value: '111'
+  }
+}]);
+
+
+// Track Sale
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/sale/jsonschema/1-0-0",
+  data: {
+    event_type: 'Sale',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '789',
+    total_value: '222'
   }
 }]);
