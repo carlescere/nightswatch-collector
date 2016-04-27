@@ -15,10 +15,13 @@
     },
     "campaign_id": {
       "type": "string"
+    },
+     "device": {
+      "type": "string"
     }
   },
   "additionalProperties" : false,
-  "required": ["tag_version", "event_type", "campaign_id"],
+  "required": ["tag_version", "event_type", "campaign_id", "device"],
   "self": {
         "format": "jsonschema",
         "name": "sale",

@@ -19,10 +19,13 @@
      "total_value" : {
       "type" : "number",
       "minimum" : 0
+    },
+    "device": {
+      "type": "string"
     }
   },
   "additionalProperties" : false,
-  "required": ["tag_version", "event_type", "campaign_id", "total_value"],
+  "required": ["tag_version", "event_type", "campaign_id", "total_value", "device"],
   "self": {
         "format": "jsonschema",
         "name": "sale",

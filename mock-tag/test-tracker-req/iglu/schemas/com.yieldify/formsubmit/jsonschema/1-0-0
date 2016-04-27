@@ -18,10 +18,13 @@
     },
     "email": {
       "type": "string"
+    },
+    "device": {
+      "type": "string"
     }
   },
   "additionalProperties" : false,
-  "required": ["tag_version", "event_type", "campaign_id", "email"],
+  "required": ["tag_version", "event_type", "campaign_id", "email", "device"],
   "self": {
         "format": "jsonschema",
         "name": "sale",

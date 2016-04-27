@@ -6,10 +6,13 @@
     },
     "event_type" : {
       "type" : "string"
+    },
+    "device": {
+      "type": "string"
     }
   },
   "additionalProperties" : false,
-  "required": ["tag_version", "event_type"],
+  "required": ["tag_version", "event_type", "device"],
   "self": {
         "format": "jsonschema",
         "name": "sale",
