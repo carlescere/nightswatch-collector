@@ -18997,9 +18997,8 @@ var y_nsp = (function() {
 })();
 
 y_nsp("newTracker", "primary", "dc.yieldify.com", {
-  appId: 6445,
-  platform: "desktop",
-  contexts: [{tagV: "v1"}]
+  appId: 6419,
+  platform: "desktop"
 });
 
 /* 
@@ -19049,25 +19048,11 @@ y_nsp('trackStructEvent', '2', 'Sale', 'v2', '-', '777');
 //y_nsp('trackStructEvent', '4', 'FormSubmit', 'v2', null, 'maria@yieldify.com|maria|male');
 
 //y_nsp('trackStructEvent', '2', 'FormSubmit', 'exec_coll', 'v2', 'ERROR');
+// --- END OF TEST FOR TAG V1 WITH STRUCTURED EVENTS ---
 
 
 
-
-// --- END OF TEST FOR TAG V2 WITH STRUCTURED EVENTS ---
-/*
-{
-  eventType: 'Impression',
-  tagVersion: 'v2',
-  exCollId: '123',
-  exCompId: '456'
-  cmpID: '789'
-}
-*/
-
-/*
-y_nsp('trackPageView');
-*/
-
+// TEST TAG V2 - UNSTRUCTURED EVENTS
 
 // Track PageView
 y_nsp('trackUnstructEvent', [{
@@ -19077,7 +19062,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789'
+    campaign_id: '789',
+    device: 'tablet'
   }
 }]);
 
@@ -19090,7 +19076,20 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789'
+    campaign_id: '777',
+    device: 'tablet'
+  }
+}]);
+
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/impression/jsonschema/1-0-0",
+  data: {
+    event_type: 'Impression',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '777',
+    device: 'desktop'
   }
 }]);
 
@@ -19102,7 +19101,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789'
+    campaign_id: '777',
+    device: 'tablet'
   }
 }]);
 
@@ -19114,11 +19114,12 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789'
+    campaign_id: '777',
+    device: 'mobile'
   }
 }]);
 
-// Track Formsubmit
+// Track Formsubmits
 y_nsp('trackUnstructEvent', [{
   schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
   data: {
@@ -19126,20 +19127,9 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
-    "email": 'iason@yieldify.com'
-  }
-}]);
-
-y_nsp('trackUnstructEvent', [{
-  schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
-  data: {
-    event_type: 'FormSubmit',
-    tag_version: 'v2',
-    xCompId: '123',
-    xCollId: '456',
-    campaign_id: '789',
-    "email": 'iason@yieldify.com'
+    campaign_id: '777',
+    email: 'iason@yieldify.com',
+    device: 'desktop'
   }
 }]);
 
@@ -19150,8 +19140,9 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
-    "email": 'krishan@yieldify.com'
+    campaign_id: '777',
+    email: 'iason@yieldify.com',
+    device: 'mobile'
   }
 }]);
 
@@ -19162,8 +19153,9 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
-    "email": 'miguel@yieldify.com'
+    campaign_id: '777',
+    email: 'krishan@yieldify.com',
+    device: 'tablet'
   }
 }]);
 
@@ -19174,8 +19166,22 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
-    "email": 'menelaos@yieldify.com'
+    campaign_id: '777',
+    email: 'miguel@yieldify.com',
+    device: 'desktop'
+  }
+}]);
+
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/formsubmit/jsonschema/1-0-0",
+  data: {
+    event_type: 'FormSubmit',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '777',
+    email: 'menelaos@yieldify.com',
+    device: 'other'
   }
 }]);
 
@@ -19187,8 +19193,9 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
-    total_value: '111'
+    campaign_id: '777',
+    total_value: '111',
+    device: 'desktop'
   }
 }]);
 
@@ -19201,8 +19208,22 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
-    total_value: '222'
+    campaign_id: '888',
+    total_value: '222',
+    device: 'desktop'
+  }
+}]);
+
+y_nsp('trackUnstructEvent', [{
+  schema: "iglu:com.yieldify/sale/jsonschema/1-0-0",
+  data: {
+    event_type: 'Sale',
+    tag_version: 'v2',
+    xCompId: '123',
+    xCollId: '456',
+    campaign_id: '888',
+    total_value: '111',
+    device: 'mobile'
   }
 }]);
 },{"snowplow-tracker":25}]},{},[]);
