@@ -4,14 +4,14 @@ var snowplow = require('snowplow-tracker'),
 	windowAlias = window;
 
 var y_nsp = (function() {
- var sp = new snowplow.Snowplow([]);
- return function() {
-   sp.push.apply(sp, [arguments]);
- }
+  var sp = new snowplow.Snowplow([]);
+    return function() {
+      sp.push.apply(sp, [arguments]);
+    }
 })();
 
 y_nsp("newTracker", "primary", "dc.yieldify.com", {
-  appId: 6419,
+  appId: 1  ,
   platform: "desktop"
 });
 
@@ -32,6 +32,7 @@ appId --> WebsiteID
 
 
 // Track Impressions
+/*
 y_nsp('trackStructEvent', '2', 'Impression', 'v2', null, null);
 y_nsp('trackStructEvent', '2', 'Impression', 'v2', null, null);
 y_nsp('trackStructEvent', '2', 'Impression', 'v2', null, null);
@@ -54,6 +55,7 @@ y_nsp('trackStructEvent', '4', 'Sale', 'v2', 'i', '999');
 y_nsp('trackStructEvent', '4', 'Sale', 'v2', 'c', '111');
 y_nsp('trackStructEvent', '2', 'Sale', 'v2', 'i', '888');
 y_nsp('trackStructEvent', '2', 'Sale', 'v2', '-', '777');
+*/
 
 // Track Form Submits
 //y_nsp('trackStructEvent', '2', 'FormSubmit', 'v2', null, 'iason@yieldify.com|iason|male');
@@ -76,7 +78,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '789',
+    client_id: '2',
+    campaign_id: '4',
     device: 'tablet'
   }
 }]);
@@ -90,7 +93,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '4',
     device: 'tablet'
   }
 }]);
@@ -102,7 +106,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '4',
     device: 'desktop'
   }
 }]);
@@ -115,7 +120,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '4',
     device: 'tablet'
   }
 }]);
@@ -128,7 +134,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     device: 'mobile'
   }
 }]);
@@ -141,7 +148,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     email: 'iason@yieldify.com',
     device: 'desktop'
   }
@@ -154,7 +162,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     email: 'iason@yieldify.com',
     device: 'mobile'
   }
@@ -167,7 +176,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     email: 'krishan@yieldify.com',
     device: 'tablet'
   }
@@ -180,7 +190,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     email: 'miguel@yieldify.com',
     device: 'desktop'
   }
@@ -193,7 +204,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     email: 'menelaos@yieldify.com',
     device: 'other'
   }
@@ -207,7 +219,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '777',
+    client_id: '2',
+    campaign_id: '5',
     total_value: '111',
     device: 'desktop'
   }
@@ -222,7 +235,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '888',
+    client_id: '2',
+    campaign_id: '5',
     total_value: '222',
     device: 'desktop'
   }
@@ -235,7 +249,8 @@ y_nsp('trackUnstructEvent', [{
     tag_version: 'v2',
     xCompId: '123',
     xCollId: '456',
-    campaign_id: '888',
+    client_id: '2',
+    campaign_id: '5',
     total_value: '111',
     device: 'mobile'
   }
