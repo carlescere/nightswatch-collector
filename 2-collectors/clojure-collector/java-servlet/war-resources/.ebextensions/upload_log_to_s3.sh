@@ -3,8 +3,8 @@
 FILES=/var/log/tomcat8/rotated/*
 instanceid=$(wget -q -O - http://instance-data/latest/meta-data/instance-id)
 regex=".*\.txt-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*)\.lzo"
-version="v2"
-bucket="yieldify-aa-stream"
+version=${NIGHTSWATCH_VERSION}
+bucket=${NIGHTSWATCH_BUCKET}
 
 for f in $FILES
 do
