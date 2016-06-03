@@ -1,4 +1,4 @@
-var snowplow = require('snowplow-tracker'),
+var snowplow = require('yi-snowplow-tracker'),
 	queueName,
 	queue,
 	windowAlias = window;
@@ -15,13 +15,13 @@ y_nsp("newTracker", "primary", "dc.yieldify.com", {
   platform: "desktop"
 });
 
-/* 
+/*
 Impression V1
 appId --> WebsiteID
 [
-  se_category, -->  campaign_id 
-  se_action,   -->  type_of_action 
-  se_label,    -->  tag_version 
+  se_category, -->  campaign_id
+  se_action,   -->  type_of_action
+  se_label,    -->  tag_version
   se_property, -->  metadata
   se_value,    -->  action specific payload
 ]
