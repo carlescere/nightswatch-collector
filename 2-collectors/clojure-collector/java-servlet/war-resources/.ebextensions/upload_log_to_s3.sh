@@ -1,10 +1,11 @@
 #!/bin/bash
 
 FILES=/var/log/tomcat8/rotated/*
-instanceid=$(wget -q -O - http://instance-data/latest/meta-data/instance-id)
+instanceid=$(/opt/aws/bin/ec2-metadata --instance-id | cut -d " " -f 2)
 regex=".*\.txt-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*)\.lzo"
-version=${NIGHTSWATCH_VERSION}
-bucket=${NIGHTSWATCH_BUCKET}
+version="v1"
+bucket="yieldify-aa-stream-production"
+logtype="raw"
 
 for f in $FILES
 do
@@ -13,7 +14,7 @@ do
         echo "Processing $f correctly"
         timestamp="${BASH_REMATCH[4]}"
         date_path=$(date -d @$timestamp +"%Y/%m/%d/%Y-%m-%d-%H")
-        path=$bucket/$version/${date_path}_${instanceid}_${timestamp}.lzo
+        path=$bucket/$version/${logtype}/${date_path}_${instanceid}_${timestamp}.lzo
         count=`aws s3 ls s3://$path | wc -l`
 
         if [[ $count -gt 0 ]]; then
